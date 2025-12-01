@@ -1,0 +1,54 @@
+{
+    "dashboard": {
+      "id": null,
+      "uid": "demo-dashboard",
+      "title": "Demo Metrics Dashboard",
+      "tags": ["demo"],
+      "timezone": "browser",
+      "schemaVersion": 41,
+      "version": 1,
+      "panels": [
+        {
+          "type": "graph",
+          "title": "Requests per Second",
+          "gridPos": { "x": 0, "y": 0, "w": 12, "h": 6 },
+          "targets": [
+            {
+              "expr": "rate(http_requests_total[1m])",
+              "legendFormat": "{{method}} {{handler}}",
+              "refId": "A",
+              "datasource": "Prometheus"
+            }
+          ]
+        },
+        {
+          "type": "graph",
+          "title": "Worker Jobs Processed",
+          "gridPos": { "x": 0, "y": 6, "w": 12, "h": 6 },
+          "targets": [
+            {
+              "expr": "rate(worker_jobs_processed_total[1m])",
+              "legendFormat": "Worker {{worker}}",
+              "refId": "B",
+              "datasource": "Prometheus"
+            }
+          ]
+        },
+        {
+          "type": "graph",
+          "title": "CPU Usage (HPA)",
+          "gridPos": { "x": 0, "y": 12, "w": 12, "h": 6 },
+          "targets": [
+            {
+              "expr": "sum(rate(container_cpu_usage_seconds_total{namespace=\"default\"}[1m])) by (pod)",
+              "legendFormat": "{{pod}}",
+              "refId": "C",
+              "datasource": "Prometheus"
+            }
+          ]
+        }
+      ]
+    },
+    "overwrite": true
+  }
+  

@@ -1,0 +1,24 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: demo-api-alerts
+  namespace: monitoring
+spec:
+  groups:
+    - name: demo-api.rules
+      rules:
+        - alert: HighCPUUsage
+          expr: avg(rate(container_cpu_usage_seconds_total{pod=~"demo-api.*"}[1m])) > 0.8
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: "High CPU usage on demo-api"
+            description: "CPU usage is above 80% for more than 1 minute."
+        - alert: LowReplicas
+          expr: kube_deployment_status_replicas{deployment="demo-api"} < 1
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: "Demo API has less than 1 replica"
