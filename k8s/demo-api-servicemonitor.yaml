@@ -7,7 +7,10 @@ spec:
   selector:
     matchLabels:
       app: demo-api
+  namespaceSelector:
+    matchNames:
+      - demo
   endpoints:
-    - port: http-metrics
+    - port: http
       path: /metrics
       interval: 15s

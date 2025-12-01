@@ -16,11 +16,26 @@ spec:
       containers:
         - name: demo-worker
           image: demo-worker:latest
-          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
           resources:
             requests:
-              cpu: "50m"
-              memory: "64Mi"
+              cpu: "100m"
+              memory: "128Mi"
             limits:
               cpu: "200m"
-              memory: "128Mi"
+              memory: "256Mi"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: demo-worker
+  namespace: demo
+spec:
+  selector:
+    app: demo-worker
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
