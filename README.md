@@ -1,5 +1,4 @@
-# final-project
-Infra + K8s + Observability demo project
+# Infra + K8s + Observability demo project
 
 
 Runbook — Demo API + Worker Project
