@@ -2,15 +2,16 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: demo-worker
-  namespace: monitoring
+  namespace: demo
+  labels:
+    release: prometheus
 spec:
   selector:
     matchLabels:
       app: demo-worker
-  namespaceSelector:
-    matchNames:
-      - demo
   endpoints:
     - port: http
       path: /metrics
       interval: 15s
+      scheme: http
+      honorLabels: true

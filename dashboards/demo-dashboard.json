@@ -27,7 +27,7 @@
           "gridPos": { "x": 0, "y": 6, "w": 12, "h": 6 },
           "targets": [
             {
-              "expr": "rate(worker_jobs_processed_total[1m])",
+              "expr": "rate(worker_jobs_total[1m])",
               "legendFormat": "Worker {{worker}}",
               "refId": "B",
               "datasource": "Prometheus"
@@ -40,7 +40,7 @@
           "gridPos": { "x": 0, "y": 12, "w": 12, "h": 6 },
           "targets": [
             {
-              "expr": "sum(rate(container_cpu_usage_seconds_total{namespace=\"default\"}[1m])) by (pod)",
+              "expr": "sum(rate(container_cpu_usage_seconds_total{namespace=\"demo\"}[1m])) by (pod)",
               "legendFormat": "{{pod}}",
               "refId": "C",
               "datasource": "Prometheus"

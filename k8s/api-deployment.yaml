@@ -32,12 +32,14 @@ kind: Service
 metadata:
   name: demo-api
   namespace: demo
+  labels:
+    app: demo-api
 spec:
   selector:
-    matchLabels:
-     app: demo-api
+    app: demo-api
   ports:
-    - protocol: TCP
+    - name: http
+      protocol: TCP
       port: 80
       targetPort: 80
   type: ClusterIP

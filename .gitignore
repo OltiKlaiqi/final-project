@@ -1,0 +1,70 @@
+# =====================
+# Terraform
+# =====================
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+terraform.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraform.lock.hcl
+
+# =====================
+# Kubernetes YAML output / local files
+# =====================
+*.yaml.backup
+*.kubeconfig
+.kube/
+
+# =====================
+# .NET 
+# =====================
+bin/
+obj/
+*.user
+*.vspscc
+*.suo
+*.nupkg
+*.DS_Store
+
+# =====================
+# Docker
+# =====================
+*.tar
+docker-compose.override.yml
+docker-compose.override.yaml
+docker-compose.override.env
+docker-compose.*.yml
+.dockerignore
+
+# =====================
+# Node / JS (if any dashboards use JS)
+# =====================
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# =====================
+# IDEs
+# =====================
+.vscode/
+.idea/
+*.code-workspace
+*.sublime-workspace
+*.sublime-project
+
+# =====================
+# Logs
+# =====================
+*.log
+
+# =====================
+# Misc
+# =====================
+*.swp
+*.bak
+*.tmp
+*.DS_Store
