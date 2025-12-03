@@ -1,4 +1,13 @@
-.PHONY: init apply deploy test destroy
+.PHONY: init apply deploy test destroy docker-build docker-load
+
+docker-build:
+	docker build -t demo-api:latest app/api
+	docker build -t demo-worker:latest app/worker
+	docker images | grep demo
+
+docker-load:
+	kind load docker-image demo-api:latest
+	kind load docker-image demo-worker:latest
 
 init:
 	terraform init -backend=false
