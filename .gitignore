@@ -11,6 +11,9 @@ override.tf.json
 *_override.tf
 *_override.tf.json
 .terraform.lock.hcl
+terraform.tfplan
+terraform.tfplan.*
+terraform.tfstate.backup
 
 # =====================
 # Kubernetes YAML output / local files
