@@ -96,8 +96,6 @@ Memory Usage (demo-api)
 
 HPA Replicas
 
-Refresh interval: 15s
-
 7️⃣ Alerts
 
 PrometheusRule /alerts/demo-alerts.yaml contains:
